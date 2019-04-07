@@ -34,7 +34,13 @@ class Layout {
       ...options,
     }
 
-    const { breakpoints, defaultBreakpointName } = this.options
+    const { produceStyles, breakpoints, defaultBreakpointName } = this.options
+
+    invariant(
+      produceStyles && typeof produceStyles === 'function',
+      'Failed to configure Layout: expected "produceStyles" to be a style producing function, but got: %s',
+      typeof produceStyles,
+    )
 
     invariant(
       breakpoints,
