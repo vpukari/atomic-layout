@@ -1,3 +1,5 @@
+import propAliases, { PropAliases } from './propAliases'
+
 type AbsoluteUnits = 'cm' | 'mm' | 'in' | 'px' | 'pt' | 'pc'
 type RelativeUnits =
   | '%'
@@ -17,6 +19,7 @@ export interface Breakpoints {
   [breakpointName: string]: Breakpoint
 }
 export interface LayoutOptions {
+  propAliases: PropAliases
   /**
    * Measurement unit that suffixes numeric prop values.
    * @default "px"
@@ -59,6 +62,7 @@ export interface Breakpoint extends MediaQuery {
 }
 
 const defaultOptions: LayoutOptions = {
+  propAliases,
   defaultUnit: 'px',
   defaultBehavior: 'up',
   defaultBreakpointName: 'xs',
